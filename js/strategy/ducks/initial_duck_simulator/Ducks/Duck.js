@@ -15,4 +15,8 @@ var Duck = function() {
 	this.sound = function() { 
 		this.soundBehavior.sound(); 
 	};
+
+	this.setFlyBehavior = function(behavior) {
+		this.flyBehavior = behavior;
+	}
 };
