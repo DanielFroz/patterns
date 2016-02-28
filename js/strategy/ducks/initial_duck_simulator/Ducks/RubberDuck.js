@@ -5,5 +5,6 @@ var RubberDuck = function() {
 	}
 
 	this.flyBehavior = new FlyNoWay();
+	this.soundBehavior = new SquickBehavior();
 }
 RubberDuck.prototype = new Duck();

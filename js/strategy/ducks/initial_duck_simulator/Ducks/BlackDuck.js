@@ -5,6 +5,7 @@ var BlackDuck = function() {
 	};
 
 	this.flyBehavior = new FlyWithWings();
+	this.soundBehavior = new QuackBehavior();
 };
 
 BlackDuck.prototype = new Duck();

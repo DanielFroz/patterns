@@ -5,6 +5,7 @@ var RedheadDuck = function() {
 	};	
 
 	this.flyBehavior = new FlyWithWings();
+	this.soundBehavior = new QuackBehavior();
 };
 
 RedheadDuck.prototype = new Duck();

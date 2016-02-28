@@ -5,5 +5,6 @@ var MallardDuck = function() {
 	};
 
 	this.flyBehavior = new FlyWithWings();
+	this.soundBehavior = new QuackBehavior();
 };
 MallardDuck.prototype = new Duck();

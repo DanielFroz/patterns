@@ -5,6 +5,7 @@ var DecoyDuck = function() {
 	};
 
 	this.flyBehavior = new FlyNoWay();
+	this.soundBehavior = new MuteBehavior();
 }
 
 DecoyDuck.prototype = new Duck();
