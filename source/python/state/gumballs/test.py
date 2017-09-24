@@ -55,13 +55,33 @@ class TestEjectQuarter(unittest.TestCase):
 
         machine.eject_quarter()
 
-        self.assertEqual(machine.NO_QUARTER, machine.state)
+        self.assertEqual(GumballMachine.NO_QUARTER, machine.state)
 
     def test__NO_QUARTER__NO_QUARTER(self):
         machine = GumballMachine(1)
 
-        self.assertEqual(machine.NO_QUARTER, machine.state)
+        self.assertEqual(GumballMachine.NO_QUARTER, machine.state)
 
     # SOLD_OUT
     # SOLD
 
+
+class TestTurnCrank(unittest.TestCase):
+
+    def test__take_last_one_gumball(self):
+        machine = GumballMachine(1)
+        machine.insert_quarter()
+
+        machine.turn_crank()
+
+        self.assertEqual(GumballMachine.SOLD_OUT, machine.state)
+        self.assertEqual(0, machine.count)
+
+    def test__ready_to_another_turn(self):
+        machine = GumballMachine(2)
+        machine.insert_quarter()
+
+        machine.turn_crank()
+
+        self.assertEqual(GumballMachine.NO_QUARTER, machine.state)
+        self.assertEqual(1, machine.count)
