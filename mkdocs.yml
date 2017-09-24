@@ -1,0 +1,4 @@
+site_name: Паттерны проектирования
+theme: readthedocs
+pages:
+    - Привет: 'index.md'
