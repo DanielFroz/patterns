@@ -45,3 +45,23 @@ class TestGumballMachineInsertQuarter(unittest.TestCase):
     def test__(self):
         pass
         # SOLD_OUT
+
+
+class TestEjectQuarter(unittest.TestCase):
+
+    def test__HAS_QUARTER__to__NO_QUARTER(self):
+        machine = GumballMachine(1)
+        machine.insert_quarter()
+
+        machine.eject_quarter()
+
+        self.assertEqual(machine.NO_QUARTER, machine.state)
+
+    def test__NO_QUARTER__NO_QUARTER(self):
+        machine = GumballMachine(1)
+
+        self.assertEqual(machine.NO_QUARTER, machine.state)
+
+    # SOLD_OUT
+    # SOLD
+

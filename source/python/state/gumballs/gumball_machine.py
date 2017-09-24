@@ -27,3 +27,15 @@ class GumballMachine:
 
         elif self.state == self.SOLD_OUT:
             print("You cant insert quarter, the machine is sold out")
+
+        elif self.state == self.SOLD:
+            print("Please wait, we are already giving you a gumball")
+
+    def eject_quarter(self):
+        if self.state == self.HAS_QUARTER:
+            print('Quarter returned')
+            self.state = self.NO_QUARTER
+
+        elif self.state == self.NO_QUARTER:
+            self.state = self.NO_QUARTER
+            print('You have not inserted a quarter')

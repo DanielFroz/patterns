@@ -8,5 +8,5 @@ if __name__ == '__main__':
 
     machine.insert_quarter()
     machine.insert_quarter()
-    machine.insert_quarter()
-    machine.insert_quarter()
+
+    machine.eject_quarter()
