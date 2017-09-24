@@ -47,7 +47,7 @@ class TestGumballMachineInsertQuarter(unittest.TestCase):
         # SOLD_OUT
 
 
-class TestEjectQuarter(unittest.TestCase):
+class TestGumballMachineEjectQuarter(unittest.TestCase):
 
     def test__HAS_QUARTER__to__NO_QUARTER(self):
         machine = GumballMachine(1)
@@ -66,7 +66,7 @@ class TestEjectQuarter(unittest.TestCase):
     # SOLD
 
 
-class TestTurnCrank(unittest.TestCase):
+class TestGumballMachineTurnCrank(unittest.TestCase):
 
     def test__take_last_one_gumball(self):
         machine = GumballMachine(1)
