@@ -1,35 +1,47 @@
 import unittest
 
+from design_patterns.source.python.state.gumballs.gumball_machine import GumballMachine
 
-class TestGumballMachine(unittest.TestCase):
+
+class TestNewGumballMachine(unittest.TestCase):
 
     def test__new_machine__with_zero_count_balls__has_zero_count(self):
-        expected = 0
         machine = GumballMachine(0)
 
-        result = machine.count
-
-        self.assertEqual(expected, result)
+        self.assertEqual(0, machine.count)
 
     def test__new_machine__with_zero_count_balls__has_state_SOLD_OUT(self):
-        expected = GumballMachine.SOLD_OUT
         machine = GumballMachine(0)
 
-        result = machine.state
+        self.assertEqual(GumballMachine.SOLD_OUT, machine.state)
 
-        self.assertEqual(expected, result)
+    def test__new_machine__with_one_ball__has_state_NO_QUARTER(self):
+        machine = GumballMachine(1)
+
+        self.assertEqual(GumballMachine.NO_QUARTER, machine.state)
 
 
-class GumballMachine:
+class TestGumballMachineInsertQuarter(unittest.TestCase):
 
-    SOLD_OUT = 0
-    NO_QUARTER = 1
-    HAS_QUARTER = 2
-    SOLD = 3
+    def test__NO_QUARTER__to__HAS_QUARTER(self):
+        machine = GumballMachine(1)
 
-    state = SOLD_OUT
-    count = 0
+        self.assertEqual(GumballMachine.NO_QUARTER, machine.state)
 
-    def __init__(self, count):
-        if count > 0:
-            self.state = self.NO_QUARTER
+        machine.insert_quarter()
+
+        self.assertEqual(GumballMachine.HAS_QUARTER, machine.state)
+
+    def test__HAS_QUARTER__to__HAS_QUARTER(self):
+        machine = GumballMachine(1)
+        machine.insert_quarter()
+
+        self.assertEqual(GumballMachine.HAS_QUARTER, machine.state)
+
+        machine.insert_quarter()
+
+        self.assertEqual(GumballMachine.HAS_QUARTER, machine.state)
+
+    def test__(self):
+        pass
+        # SOLD_OUT
